@@ -40,16 +40,47 @@ btnGioca.addEventListener('click', function(){
     console.log(spazioNumeri.classList)
         console.log(spazioDomanda.classList)
 
-    setTimeout( function(){
+    setTimeout(function () {
+        let spazioNumeri = document.getElementById('containerNum')
+        let spazioDomanda = document.getElementById('containerAn')
+        let scritta = document.querySelector('main')
+        let btnGioca = document.getElementById('gioca')
+        let btnVerifica = document.getElementById('verifica')
+
+
+
         console.log('maiale')
-        spazioNumeri.className = 'container none'
-        //spazioNumeri.classList.add('none')
-        //spazioNumeri.classList.remove('active')
-    
-        spazioDomanda.className = 'container active'
-        //spazioDomanda.classList.add('active')
-        //spazioDomanda.classList.remove('none')
-    
+        spazioNumeri.innerHTML = "";
+        spazioDomanda.innerHTML = "";
+        //spazioNumeri.className = 'container none'
+        spazioNumeri.classList.add('none')
+        spazioNumeri.classList.remove('active')
+        btnGioca.classList.add('none')
+        btnGioca.classList.remove('active')
+        btnVerifica.classList.add('active')
+        btnVerifica.classList.remove('none')
+        
+
+        
+        //spazioDomanda.className = 'container active'
+        spazioDomanda.classList.add('active')
+        spazioDomanda.classList.remove('none')
+        for(let i = 0; i <5; i++){ 
+            spazioDomanda.innerHTML+=`<input type="number" id="verificaId${i}">`;
+            
+        }
+
+        btnVerifica.addEventListener('click', function(){
+
+            let arrayInseriti = []
+            for(let k=0;k<5;k++){
+                let inputVerifica = document.querySelectorAll('#verificaId[k]');
+                arrayInseriti.push(inputVerifica.value)
+            }
+            console.log(arrayInseriti)
+        })
+
+
         console.log(spazioNumeri.classList)
         console.log(spazioDomanda.classList)
     
