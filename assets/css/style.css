@@ -41,7 +41,7 @@ button {
 .container {
     width: 100%;
 
-    display: flex;
+
     flex-direction: row;
     justify-content: space-between;
 }
@@ -53,8 +53,19 @@ button {
     align-items: center;
     font-size: 60px;
 }
+input {
+    width: calc(100% / 5 - 10px);
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+}
 
 .none {
     display: none;
 
+}
+.active{
+    display: flex;
 }
