@@ -46,7 +46,7 @@ btnGioca.addEventListener('click', function(){
         let scritta = document.querySelector('main')
         let btnGioca = document.getElementById('gioca')
         let btnVerifica = document.getElementById('verifica')
-
+        
 
 
         console.log('maiale')
@@ -66,7 +66,7 @@ btnGioca.addEventListener('click', function(){
         spazioDomanda.classList.add('active')
         spazioDomanda.classList.remove('none')
         for(let i = 0; i <5; i++){ 
-            spazioDomanda.innerHTML+=`<input type="number" id="verificaId${i}">`;
+            spazioDomanda.innerHTML+=`<input type="number" name="verificaId${i}">`;
             
         }
 
@@ -74,8 +74,10 @@ btnGioca.addEventListener('click', function(){
 
             let arrayInseriti = []
             for(let k=0;k<5;k++){
-                let inputVerifica = document.querySelectorAll('#verificaId[k]');
-                arrayInseriti.push(inputVerifica.value)
+                let nameInp = document.querySelector('input').nextElementSibling.value 
+                
+                console.log(nameInp)
+                
             }
             console.log(arrayInseriti)
         })
