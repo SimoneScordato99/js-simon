@@ -40,20 +40,69 @@ btnGioca.addEventListener('click', function(){
     console.log(spazioNumeri.classList)
         console.log(spazioDomanda.classList)
 
-    setTimeout( function(){
+    setTimeout(function () {
+        let spazioNumeri = document.getElementById('containerNum')
+        let spazioDomanda = document.getElementById('containerAn')
+        let scritta = document.querySelector('main')
+        let btnGioca = document.getElementById('gioca')
+        let btnVerifica = document.getElementById('verifica')
+        
+
+
         console.log('maiale')
-        spazioNumeri.className = 'container none'
-        //spazioNumeri.classList.add('none')
-        //spazioNumeri.classList.remove('active')
-    
-        spazioDomanda.className = 'container active'
-        //spazioDomanda.classList.add('active')
-        //spazioDomanda.classList.remove('none')
-    
+        spazioNumeri.innerHTML = "";
+        spazioDomanda.innerHTML = "";
+        //spazioNumeri.className = 'container none'
+        spazioNumeri.classList.add('none')
+        spazioNumeri.classList.remove('active')
+        btnGioca.classList.add('none')
+        btnGioca.classList.remove('active')
+        btnVerifica.classList.add('active')
+        btnVerifica.classList.remove('none')
+        
+
+        
+        //spazioDomanda.className = 'container active'
+        spazioDomanda.classList.add('active')
+        spazioDomanda.classList.remove('none')
+        for(let i = 0; i <5; i++){ 
+            spazioDomanda.innerHTML+=`<input type="number" id="verificaId${i}">`;
+            
+        }
+        console.log(spazioDomanda)
+
+        btnVerifica.addEventListener('click', function(){
+
+            let arrayInseriti = []
+            let nameInp0 = parseInt(document.getElementById('verificaId0').value)
+            let nameInp1 = parseInt(document.getElementById('verificaId1').value)
+            let nameInp2 = parseInt(document.getElementById('verificaId2').value)
+            let nameInp3 = parseInt(document.getElementById('verificaId3').value)
+            let nameInp4 = parseInt(document.getElementById('verificaId4').value)
+
+            arrayInseriti.push(nameInp0)
+            arrayInseriti.push(nameInp1)
+            arrayInseriti.push(nameInp2)
+            arrayInseriti.push(nameInp3)
+            arrayInseriti.push(nameInp4)
+           
+            console.log(arrayInseriti)
+            let score = 0
+
+            for(let k=0;k<arrayInseriti.length;k++){
+
+                if(arrayCasuali.includes(arrayInseriti[k]) ){
+                    score = score + 1
+                }
+            }
+            scritta.innerHTML=`ne hai indovinate ${score}/5`
+        })
+
+
         console.log(spazioNumeri.classList)
         console.log(spazioDomanda.classList)
     
-    }, 2000)
+    }, 5000)
 })
 
 
